@@ -1,14 +1,15 @@
 "use client"
 import Image from "next/image"
+import {AvatarProps} from "../types"
 
-const Avatar = () => {
+const Avatar = ({src}: AvatarProps) => {
   return (
     <Image
       className='rounded-full'
       alt='avatar'
       height={30}
       width={30}
-      src={"/images/placeholder.jpg"}
+      src={src || "/images/placeholder.jpg"}
     />
   )
 }
