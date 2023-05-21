@@ -6,6 +6,7 @@ import {Inter} from "next/font/google"
 import ToasterProvider from "./providers/ToasterProvider"
 import LoginModal from "./components/modals/LoginModal"
 import getCurrentUser from "./actions/getCurrentUser"
+import RentModal from "./components/modals/RentModal"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -26,6 +27,7 @@ export default async function RootLayout({
         <ToasterProvider />
         <Navbar currentUser={currentUser} />
         <LoginModal />
+        <RentModal />
         <RegisterModal />
         {children}
       </body>
