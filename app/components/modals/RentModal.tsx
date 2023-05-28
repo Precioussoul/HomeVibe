@@ -9,6 +9,7 @@ import {FieldValues, useForm} from "react-hook-form"
 import CountrySelect from "../Inputs/CountrySelect"
 import dynamic from "next/dynamic"
 import Counter from "../Counter"
+import ImageUpload from "../ImageUpload"
 
 enum STEP {
   CATEGORY = 0,
@@ -161,6 +162,18 @@ const RentModal = () => {
             setCustomValue("bathroomCount", value)
           }}
         />
+      </div>
+    )
+  }
+
+  if (step === STEP.IMAGES) {
+    bodyContent = (
+      <div className='flex flex-col gap-8'>
+        <Heading
+          title='Add a photo of your place'
+          subtitle='Show guests what your place looks like!'
+        />
+        <ImageUpload />
       </div>
     )
   }
