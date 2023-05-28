@@ -44,3 +44,10 @@ export type CountrySelectProps = {
 export type MapProps = {
   center: number[]
 }
+
+export type CounterProps = {
+  title: string
+  subtitle: string
+  value: number
+  onChange: (value: number) => void
+}
