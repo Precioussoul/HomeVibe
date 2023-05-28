@@ -51,3 +51,8 @@ export type CounterProps = {
   value: number
   onChange: (value: number) => void
 }
+
+export type ImageUploadProps = {
+  onChange: (value: string) => void
+  value: string
+}
