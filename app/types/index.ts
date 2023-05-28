@@ -20,3 +20,27 @@ export type CategoryBoxProps = {
   description?: string
   selected?: boolean
 }
+
+export type CategoryInputProps = {
+  icon: IconType
+  label: string
+  selected?: boolean
+  onClick: (s: string) => void
+}
+
+export type CountrySelectvalueProps = {
+  flag: string
+  label: string
+  latlng: string[] | number[]
+  region: string
+  value: string
+}
+
+export type CountrySelectProps = {
+  value: CountrySelectvalueProps
+  onChange: (value: CountrySelectvalueProps) => void
+}
+
+export type MapProps = {
+  center: number[]
+}
