@@ -45,7 +45,7 @@ const LoginModal = () => {
         loginModal.onClose()
       }
       if (result?.error) {
-        toast.error(result.error)
+        toast.error("Invalid Credentials")
       }
     })
   }
