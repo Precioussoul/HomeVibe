@@ -9,7 +9,7 @@ import {FieldValues, useForm} from "react-hook-form"
 import CountrySelect from "../Inputs/CountrySelect"
 import dynamic from "next/dynamic"
 import Counter from "../Counter"
-import ImageUpload from "../ImageUpload"
+import ImageUpload from "../Inputs/ImageUpload"
 
 enum STEP {
   CATEGORY = 0,
