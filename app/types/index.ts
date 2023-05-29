@@ -56,3 +56,9 @@ export type ImageUploadProps = {
   onChange: (value: string) => void
   value: string
 }
+
+export type EmptyState = {
+  title?: string
+  subtitle?: string
+  showReset?: boolean
+}
