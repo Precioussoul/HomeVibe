@@ -1,6 +1,8 @@
 "use client"
 
-const ListingCard = () => {
+import {ListingCardProps} from "@/app/types"
+
+const ListingCard = ({}: ListingCardProps) => {
   return <div>ListingCard</div>
 }
 

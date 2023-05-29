@@ -67,4 +67,8 @@ export type ListingCardProps = {
   data: Listings
   reservations?: Reservation
   onAction?: (id: string) => void
+  disabled?: boolean
+  actionLabel?: string
+  actionId?: string
+  currentUser: SafeUser | null
 }
