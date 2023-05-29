@@ -1,4 +1,4 @@
-import {User} from "@prisma/client"
+import {Listings, Reservation, User} from "@prisma/client"
 import {IconType} from "react-icons/lib"
 
 export type SafeUser = Omit<
@@ -61,4 +61,10 @@ export type EmptyState = {
   title?: string
   subtitle?: string
   showReset?: boolean
+}
+
+export type ListingCardProps = {
+  data: Listings
+  reservations?: Reservation
+  onAction?: (id: string) => void
 }
