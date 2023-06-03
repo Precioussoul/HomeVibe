@@ -66,7 +66,7 @@ const ListingCard = ({
             className='object-cover h-full w-full group-hover:scale-110 transition'
           />
           <div className='absolute top-3 right-3'>
-            <HeartButton listingId={" "} currentUser={currentUser} />
+            <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
         <p className='font-semibold text-lg'>

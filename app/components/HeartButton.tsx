@@ -13,7 +13,7 @@ const HeartButton = ({listingId, currentUser}: HeartButtonProps) => {
     >
       <AiOutlineHeart
         size={28}
-        className={`fill-white absolute -top-[2px] -right-[2px] ${
+        className={`absolute -top-[2px] -right-[2px] ${
           hasFavorited ? "fill-rose-500" : "fill-neutral-500/70"
         }`}
       />
