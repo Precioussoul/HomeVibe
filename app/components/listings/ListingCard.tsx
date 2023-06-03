@@ -38,6 +38,14 @@ const ListingCard = ({
     return data.price
   }, [reservations, data.price])
 
+  const reservationDate = useMemo(() => {
+    if (!reservations) {
+      return null
+    }
+    const start = new Date(reservations.startDate)
+    const end = new Date(reservations.endDate)
+  }, [reservations])
+
   return <div>ListingCard</div>
 }
 
