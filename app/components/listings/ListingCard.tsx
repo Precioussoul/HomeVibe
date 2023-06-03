@@ -7,6 +7,7 @@ import Image from "next/image"
 import {useRouter} from "next/navigation"
 import {useCallback, useMemo} from "react"
 import HeartButton from "../HeartButton"
+import Button from "../Button"
 
 const ListingCard = ({
   data,
@@ -68,6 +69,24 @@ const ListingCard = ({
             <HeartButton listingId={" "} currentUser={currentUser} />
           </div>
         </div>
+        <p className='font-semibold text-lg'>
+          {location?.region}, {location?.label}
+        </p>
+        <p className='font-light text-neutral-500'>
+          {reservationDate || data.category}
+        </p>
+        <div className='flex flex-row items-center gap-1'>
+          <p className='font-semibold'>${price}</p>
+          {!reservations && <p className='font-light'>night</p>}
+        </div>
+        {onAction && actionLabel && (
+          <Button
+            disabled={disabled}
+            small
+            label={actionLabel}
+            onClick={handleCancel}
+          />
+        )}
       </div>
     </div>
   )
