@@ -2,7 +2,15 @@
 
 import {ListingCardProps} from "@/app/types"
 
-const ListingCard = ({}: ListingCardProps) => {
+const ListingCard = ({
+  data,
+  reservations,
+  onAction,
+  disabled,
+  actionLabel,
+  actionId,
+  currentUser,
+}: ListingCardProps) => {
   return <div>ListingCard</div>
 }
 
