@@ -81,6 +81,6 @@ export type IParams = {
 }
 
 export type UseFavoriteProps = {
-  listindId?: string
+  listingId: string
   currentUser?: SafeUser | null
 }
