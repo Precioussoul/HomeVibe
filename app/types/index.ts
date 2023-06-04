@@ -76,3 +76,6 @@ export type HeartButtonProps = {
   listingId?: string
   currentUser?: SafeUser | null
 }
+export type IParams = {
+  listingId?: string
+}
