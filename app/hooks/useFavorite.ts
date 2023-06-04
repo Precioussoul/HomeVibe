@@ -21,7 +21,22 @@ const useFavorites = ({listingId, currentUser}: UseFavoriteProps) => {
       if (!currentUser) {
         return loginModal.onOpen()
       }
+
+      try {
+        let request
+        if (hasFavorited) {
+          request = () => axios.delete(`/app/favorites/${listingId}`)
+        } else {
+          request = () => axios.post(`/app/favorites/${listingId}`)
+        }
+
+        await request()
+        router.refresh()
+        toast.success("success")
+      } catch (error) {
+        toast.error("Something went wrong")
+      }
     },
-    [currentUser, loginModal]
+    [currentUser, loginModal, hasFavorited, router, listingId]
   )
 }
