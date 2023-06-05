@@ -25,9 +25,9 @@ const useFavorites = ({listingId, currentUser}: UseFavoriteProps) => {
       try {
         let request
         if (hasFavorited) {
-          request = () => axios.delete(`/app/favorites/${listingId}`)
+          request = () => axios.delete(`/api/favorites/${listingId}`)
         } else {
-          request = () => axios.post(`/app/favorites/${listingId}`)
+          request = () => axios.post(`/api/favorites/${listingId}`)
         }
 
         await request()
@@ -39,4 +39,11 @@ const useFavorites = ({listingId, currentUser}: UseFavoriteProps) => {
     },
     [currentUser, loginModal, hasFavorited, router, listingId]
   )
+
+  return {
+    hasFavorited,
+    toggleFavorite,
+  }
 }
+
+export default useFavorites

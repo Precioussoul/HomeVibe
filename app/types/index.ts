@@ -73,7 +73,7 @@ export type ListingCardProps = {
   currentUser: SafeUser | null
 }
 export type HeartButtonProps = {
-  listingId?: string
+  listingId: string
   currentUser?: SafeUser | null
 }
 export type IParams = {
