@@ -9,6 +9,9 @@ export type SafeUser = Omit<
   updatedAt: string
   emailVerified: string | null
 }
+export type SafeListing = Omit<Listings, "createdAt"> & {
+  createdAt: string
+}
 
 export type AvatarProps = {
   src?: string | null | undefined
