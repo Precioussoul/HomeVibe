@@ -87,3 +87,7 @@ export type UseFavoriteProps = {
   listingId: string
   currentUser?: SafeUser | null
 }
+
+export type getListingId = {
+  params: IParams
+}
