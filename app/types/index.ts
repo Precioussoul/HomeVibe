@@ -67,7 +67,7 @@ export type EmptyState = {
 }
 
 export type ListingCardProps = {
-  data: Listings
+  data: SafeListing
   reservations?: Reservation
   onAction?: (id: string) => void
   disabled?: boolean
