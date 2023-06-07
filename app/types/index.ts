@@ -91,3 +91,11 @@ export type UseFavoriteProps = {
 export type getListingId = {
   params: IParams
 }
+
+export type ListingClientProps = {
+  reservation?: Reservation
+  listing: SafeListing & {
+    user: SafeUser
+  }
+  currentUser?: SafeUser | null
+}
