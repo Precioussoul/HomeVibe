@@ -1,6 +1,12 @@
 "use client"
 
-const ListingClient = () => {
+import {ListingClientProps} from "../types"
+
+const ListingClient = ({
+  listing,
+  currentUser,
+  reservation,
+}: ListingClientProps) => {
   return <div>ListingClient</div>
 }
 
