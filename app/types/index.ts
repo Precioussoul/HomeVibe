@@ -105,5 +105,5 @@ export type ListingHeadProps = {
   imageSrc: string
   locationValue: string
   id: string
-  currentUser: SafeUser
+  currentUser: SafeUser | null | undefined
 }
