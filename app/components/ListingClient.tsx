@@ -9,7 +9,7 @@ import ListingHead from "./LIstingHead"
 const ListingClient = ({
   listing,
   currentUser,
-  reservation,
+  reservations,
 }: ListingClientProps) => {
   const category = useMemo(() => {
     return categories.find((item) => item.label === listing.category)

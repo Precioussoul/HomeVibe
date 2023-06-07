@@ -93,9 +93,17 @@ export type getListingId = {
 }
 
 export type ListingClientProps = {
-  reservation?: Reservation
+  reservations?: Reservation[]
   listing: SafeListing & {
     user: SafeUser
   }
   currentUser?: SafeUser | null
+}
+
+export type ListingHeadProps = {
+  title: string
+  imageSrc: string
+  locationValue: string
+  id: string
+  currentUser: SafeUser
 }
