@@ -1,10 +1,10 @@
 "use client"
 import React from "react"
-import {ListingHeadProps} from "../types"
-import Heading from "./Heading"
-import useCountries from "../hooks/useCountries"
+import {ListingHeadProps} from "../../types"
+import Heading from "../Heading"
+import useCountries from "../../hooks/useCountries"
 import Image from "next/image"
-import HeartButton from "./HeartButton"
+import HeartButton from "../HeartButton"
 
 const ListingHead = ({
   locationValue,

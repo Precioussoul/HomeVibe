@@ -110,9 +110,11 @@ export type ListingHeadProps = {
 export type ListingInfoProps = {
   user: SafeUser | null | undefined
   description?: string
-  category: {label: string; icon: IconType; description: string} | undefined
+  category: CategoryProps | undefined
   roomCount?: number
   guestCount?: number
   bathroomCount?: number
-  locationValue?: string
+  locationValue: string
 }
+
+export type CategoryProps = {label: string; icon: IconType; description: string}
