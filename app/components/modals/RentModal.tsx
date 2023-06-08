@@ -64,7 +64,7 @@ const RentModal = () => {
         ssr: false,
       }),
     [location]
-  )
+  ) as any
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {

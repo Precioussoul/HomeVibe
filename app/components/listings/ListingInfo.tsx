@@ -6,9 +6,10 @@ import Avatar from "../Avatar"
 import ListingCategory from "./ListingCategory"
 import dynamic from "next/dynamic"
 
-const Map = dynamic(() => import("../Map"), {
+const Map = dynamic(() => import("../Map").then((module) => module.default), {
   ssr: false,
-})
+  loading: () => <div>Loading...</div>,
+}) as any
 
 const ListingInfo = ({
   user,
@@ -47,7 +48,6 @@ const ListingInfo = ({
       <hr />
       <div className='text-lg font-light text-neutral-500'>{description}</div>
       <hr />
-
       <Map center={coordinates} />
     </div>
   )
