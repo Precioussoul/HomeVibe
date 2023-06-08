@@ -2,7 +2,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser"
 import getListingId from "@/app/actions/getListingByIds"
 import ClientOnly from "@/app/components/ClientOnly"
 import EmptyState from "@/app/components/EmptyState"
-import ListingClient from "@/app/components/ListingClient"
+import ListingClient from "@/app/components/listings/ListingClient"
 import {IParams} from "@/app/types"
 
 const ListingPage = async ({params}: {params: IParams}) => {

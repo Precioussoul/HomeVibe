@@ -4,6 +4,11 @@ import {ListingInfoProps} from "../../types"
 import useCountries from "../../hooks/useCountries"
 import Avatar from "../Avatar"
 import ListingCategory from "./ListingCategory"
+import dynamic from "next/dynamic"
+
+const Map = dynamic(() => import("../Map"), {
+  ssr: false,
+})
 
 const ListingInfo = ({
   user,
@@ -39,6 +44,11 @@ const ListingInfo = ({
           description={category.description}
         />
       )}
+      <hr />
+      <div className='text-lg font-light text-neutral-500'>{description}</div>
+      <hr />
+
+      <Map center={coordinates} />
     </div>
   )
 }
