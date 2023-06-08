@@ -6,20 +6,41 @@ import {categories} from "../Navbar/Categories"
 import Container from "../Container"
 import ListingHead from "./LIstingHead"
 import ListingInfo from "./ListingInfo"
+import {eachDayOfInterval} from "date-fns"
+import useLoginModal from "@/app/hooks/useLoginModal"
+import {useRouter} from "next/navigation"
 
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
   key: "selection",
 }
+
 const ListingClient = ({
   listing,
   currentUser,
   reservations,
 }: ListingClientProps) => {
+  const loginModal = useLoginModal()
+  const router = useRouter()
+
   const category = useMemo(() => {
     return categories.find((item) => item.label === listing.category)
   }, [listing.category])
+
+  const disabledDates = useMemo(() => {
+    let dates: Date[] = []
+
+    reservations?.forEach((reservation) => {
+      const range = eachDayOfInterval({
+        start: new Date(reservation.startDate),
+        end: new Date(reservation.endDate),
+      })
+      dates = [...dates, ...range]
+    })
+
+    return dates
+  }, [reservations])
 
   return (
     <Container>
