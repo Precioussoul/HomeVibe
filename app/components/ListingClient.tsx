@@ -5,6 +5,7 @@ import {ListingClientProps} from "../types"
 import {categories} from "./Navbar/Categories"
 import Container from "./Container"
 import ListingHead from "./LIstingHead"
+import ListingInfo from "./ListingInfo"
 
 const ListingClient = ({
   listing,
