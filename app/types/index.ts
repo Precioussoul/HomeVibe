@@ -107,3 +107,12 @@ export type ListingHeadProps = {
   id: string
   currentUser: SafeUser | null | undefined
 }
+export type ListingInfoProps = {
+  user: SafeUser | null | undefined
+  description?: string
+  category: {label: string; icon: IconType; description: string} | undefined
+  roomCount?: number
+  guestCount?: number
+  bathroomCount?: number
+  locationValue?: string
+}

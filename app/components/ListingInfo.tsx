@@ -1,7 +1,8 @@
 "use client"
 import React from "react"
+import {ListingInfoProps} from "../types"
 
-const ListingInfo = () => {
+const ListingInfo = ({}: ListingInfoProps) => {
   return <div>ListingInfo</div>
 }
 
