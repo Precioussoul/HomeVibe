@@ -6,7 +6,7 @@ import {categories} from "../Navbar/Categories"
 import Container from "../Container"
 import ListingHead from "./LIstingHead"
 import ListingInfo from "./ListingInfo"
-import {eachDayOfInterval} from "date-fns"
+import {differenceInDays, eachDayOfInterval} from "date-fns"
 import useLoginModal from "@/app/hooks/useLoginModal"
 import {useRouter} from "next/navigation"
 import axios from "axios"
@@ -75,11 +75,16 @@ const ListingClient = ({
       })
   }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal])
 
-  // useEffect(() => {
-  //   if (dateRange.startDate && dateRange.endDate) {
-  //     const dayCount = dateRange.startDate.
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (dateRange.startDate && dateRange.endDate) {
+      const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate)
+      if (dayCount && listing.price) {
+        setTotalPrice(dayCount * listing.price)
+      } else {
+        setTotalPrice(listing.price)
+      }
+    }
+  }, [dateRange, listing.price])
 
   return (
     <Container>
