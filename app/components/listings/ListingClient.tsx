@@ -116,9 +116,11 @@ const ListingClient = ({
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
-                onChangeDate={() => {}}
-                dateRange={() => {}}
-                onSubmit={() => {}}
+                onChangeDate={(value) => setDateRange(value)}
+                dateRange={dateRange}
+                onSubmit={onCreateReservation}
+                disabled={isLoading}
+                disabledDates={disabledDates}
               />
             </div>
           </div>

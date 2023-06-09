@@ -126,4 +126,5 @@ export type ListingCategoryProps = {
   onSubmit: (value: any) => void
   dateRange: string
   disabled?: boolean
+  disabledDates: string
 }
