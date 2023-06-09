@@ -1,6 +1,6 @@
 "use client"
 
-import {useMemo} from "react"
+import {useCallback, useEffect, useMemo, useState} from "react"
 import {ListingClientProps} from "../../types"
 import {categories} from "../Navbar/Categories"
 import Container from "../Container"
@@ -9,6 +9,8 @@ import ListingInfo from "./ListingInfo"
 import {eachDayOfInterval} from "date-fns"
 import useLoginModal from "@/app/hooks/useLoginModal"
 import {useRouter} from "next/navigation"
+import axios from "axios"
+import {toast} from "react-hot-toast"
 
 const initialDateRange = {
   startDate: new Date(),
@@ -41,6 +43,43 @@ const ListingClient = ({
 
     return dates
   }, [reservations])
+
+  const [isLoading, setIsLoading] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(listing.price)
+  const [dateRange, setDateRange] = useState(initialDateRange)
+
+  const onCreateReservation = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen()
+    }
+    setIsLoading(true)
+
+    axios
+      .post("/api/reservations", {
+        totalPrice,
+        startDate: dateRange.startDate,
+        endDate: dateRange.endDate,
+        listing: listing?.id,
+      })
+      .then(() => {
+        toast.success("Listing reservation")
+        setDateRange(initialDateRange)
+
+        router.refresh()
+      })
+      .catch(() => {
+        toast.error("Something went wrong")
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal])
+
+  useEffect(() => {
+    if (dateRange.startDate && dateRange.endDate) {
+      const dayCount = dateRange.startDate.
+    }
+  }, [])
 
   return (
     <Container>
