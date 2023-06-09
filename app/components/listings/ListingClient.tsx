@@ -75,11 +75,11 @@ const ListingClient = ({
       })
   }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal])
 
-  useEffect(() => {
-    if (dateRange.startDate && dateRange.endDate) {
-      const dayCount = dateRange.startDate.
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (dateRange.startDate && dateRange.endDate) {
+  //     const dayCount = dateRange.startDate.
+  //   }
+  // }, [])
 
   return (
     <Container>
