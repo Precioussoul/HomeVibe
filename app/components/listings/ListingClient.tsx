@@ -6,11 +6,12 @@ import {categories} from "../Navbar/Categories"
 import Container from "../Container"
 import ListingHead from "./LIstingHead"
 import ListingInfo from "./ListingInfo"
-import {differenceInDays, eachDayOfInterval} from "date-fns"
+import {differenceInCalendarDays, eachDayOfInterval} from "date-fns"
 import useLoginModal from "@/app/hooks/useLoginModal"
 import {useRouter} from "next/navigation"
 import axios from "axios"
 import {toast} from "react-hot-toast"
+import ListingReservation from "./ListingReservation"
 
 const initialDateRange = {
   startDate: new Date(),
@@ -77,7 +78,11 @@ const ListingClient = ({
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
-      const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate)
+      const dayCount = differenceInCalendarDays(
+        dateRange.endDate,
+        dateRange.startDate
+      )
+
       if (dayCount && listing.price) {
         setTotalPrice(dayCount * listing.price)
       } else {
@@ -107,6 +112,15 @@ const ListingClient = ({
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
+            <div className='order-first mb-10 md:order-last md:col-span-2'>
+              <ListingReservation
+                price={listing.price}
+                totalPrice={totalPrice}
+                onChangeDate={() => {}}
+                dateRange={() => {}}
+                onSubmit={() => {}}
+              />
+            </div>
           </div>
         </div>
       </div>

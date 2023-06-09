@@ -118,3 +118,12 @@ export type ListingInfoProps = {
 }
 
 export type CategoryProps = {label: string; icon: IconType; description: string}
+
+export type ListingCategoryProps = {
+  price: number
+  totalPrice: number
+  onChangeDate: (value: any) => void
+  onSubmit: (value: any) => void
+  dateRange: string
+  disabled?: boolean
+}
