@@ -1,12 +1,12 @@
 "use client"
 
-import {ListingCategoryProps} from "@/app/types"
+import {ListingReservationProps} from "@/app/types"
 
 const ListingReservation = ({
   price,
   totalPrice,
   onChangeDate,
-}: ListingCategoryProps) => {
+}: ListingReservationProps) => {
   return <div>ListingReservation</div>
 }
 

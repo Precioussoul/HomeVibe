@@ -119,12 +119,12 @@ export type ListingInfoProps = {
 
 export type CategoryProps = {label: string; icon: IconType; description: string}
 
-export type ListingCategoryProps = {
+export type ListingReservationProps = {
   price: number
   totalPrice: number
-  onChangeDate: (value: any) => void
-  onSubmit: (value: any) => void
-  dateRange: string
+  onChangeDate: (value: Range) => void
+  onSubmit: () => void
+  dateRange: Range
   disabled?: boolean
-  disabledDates: string
+  disabledDates: Date[]
 }
