@@ -6,6 +6,10 @@ const ListingReservation = ({
   price,
   totalPrice,
   onChangeDate,
+  dateRange,
+  disabled,
+  onSubmit,
+  disabledDates,
 }: ListingReservationProps) => {
   return <div>ListingReservation</div>
 }
