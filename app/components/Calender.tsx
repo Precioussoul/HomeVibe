@@ -1,8 +1,21 @@
 "use client"
 import React from "react"
+import {CalenderProps} from "../types"
+import {DateRange} from "react-date-range"
 
-const Calender = () => {
-  return <div>Calender</div>
+const Calender = ({value, onChange, disabledDates}: CalenderProps) => {
+  return (
+    <DateRange
+      rangeColors={["#262626"]}
+      ranges={[value]}
+      date={new Date()}
+      onChange={onChange}
+      direction={"vertical"}
+      showDateDisplay={false}
+      minDate={new Date()}
+      disabledDates={disabledDates}
+    />
+  )
 }
 
 export default Calender

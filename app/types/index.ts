@@ -1,4 +1,5 @@
 import {Listings, Reservation, User} from "@prisma/client"
+import {Range} from "react-date-range"
 import {IconType} from "react-icons/lib"
 
 export type SafeUser = Omit<
@@ -126,5 +127,10 @@ export type ListingReservationProps = {
   onSubmit: () => void
   dateRange: Range
   disabled?: boolean
+  disabledDates: Date[]
+}
+export type CalenderProps = {
+  value: Range
+  onChange: (value: Range) => void
   disabledDates: Date[]
 }
