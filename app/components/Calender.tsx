@@ -1,4 +1,7 @@
 "use client"
+import "react-date-range/dist/styles.css"
+import "react-date-range/dist/theme/default.css"
+
 import React from "react"
 import {CalenderProps} from "../types"
 import {DateRange} from "react-date-range"

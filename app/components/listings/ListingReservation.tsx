@@ -1,6 +1,7 @@
 "use client"
-import {Range} from "react-date-range"
+
 import {ListingReservationProps} from "@/app/types"
+import Calender from "../Calender"
 
 const ListingReservation = ({
   price,
@@ -12,16 +13,16 @@ const ListingReservation = ({
   disabledDates,
 }: ListingReservationProps) => {
   return (
-    <div className='bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden'>
+    <div className='bg-white rounded-xl w-full border-[1px] border-neutral-200 overflow-hidden'>
       <div className='flex flex-row items-center gap-1 p-4'>
         <p className='text-2xl font-semibold'>${price}</p>
         <p className='font-light text-neutral-500'>Night</p>
       </div>
       <hr />
-      <Calendar
+      <Calender
         value={dateRange}
-        disabledDate={disabledDates}
-        onChange={(value) => onChangeDate}
+        disabledDates={disabledDates}
+        onChange={(value) => onChangeDate(value.selection)}
       />
     </div>
   )
