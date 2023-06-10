@@ -13,7 +13,7 @@ export type SafeUser = Omit<
 export type SafeListing = Omit<Listings, "createdAt"> & {
   createdAt: string
 }
-export type SafeReservation = Omit<
+export type SafeReservations = Omit<
   Reservation,
   "createdAt" | "startDate" | "endDate" | "listing"
 > & {
@@ -103,7 +103,7 @@ export type getListingId = {
 }
 
 export type ListingClientProps = {
-  reservations?: Reservation[]
+  reservations?: SafeReservations[]
   listing: SafeListing & {
     user: SafeUser
   }
