@@ -12,6 +12,7 @@ import {useRouter} from "next/navigation"
 import axios from "axios"
 import {toast} from "react-hot-toast"
 import ListingReservation from "./ListingReservation"
+import {Range} from "react-date-range"
 
 const initialDateRange = {
   startDate: new Date(),
@@ -47,7 +48,7 @@ const ListingClient = ({
 
   const [isLoading, setIsLoading] = useState(false)
   const [totalPrice, setTotalPrice] = useState(listing.price)
-  const [dateRange, setDateRange] = useState(initialDateRange)
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange)
 
   const onCreateReservation = useCallback(() => {
     if (!currentUser) {
@@ -116,7 +117,7 @@ const ListingClient = ({
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
-                onChangeDate={(value: any) => setDateRange(value)}
+                onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}
                 onSubmit={onCreateReservation}
                 disabled={isLoading}

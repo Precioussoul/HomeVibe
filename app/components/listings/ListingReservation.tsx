@@ -2,6 +2,7 @@
 
 import {ListingReservationProps} from "@/app/types"
 import Calender from "../Calender"
+import Button from "../Button"
 
 const ListingReservation = ({
   price,
@@ -25,6 +26,9 @@ const ListingReservation = ({
         onChange={(value) => onChangeDate(value.selection)}
       />
       <hr />
+      <div className='p-4'>
+        <Button disabled={disabled} label='Reserve' onClick={onSubmit} />
+      </div>
       <div className='p-4 flex flex-row items-center justify-between font-semibold text-lg'>
         <h3>Total</h3>
         <p className=''>$ {totalPrice}</p>
