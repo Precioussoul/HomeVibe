@@ -61,10 +61,10 @@ const ListingClient = ({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listing: listing?.id,
+        listingId: listing?.id,
       })
       .then(() => {
-        toast.success("Listing reservation")
+        toast.success("Listing reserved")
         setDateRange(initialDateRange)
 
         router.refresh()

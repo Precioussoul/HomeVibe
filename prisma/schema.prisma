@@ -24,7 +24,7 @@ model User {
 
 accounts Account[]
 listings Listings[]
-reservation Reservation[]
+reservations Reservation[]
 }
 
 model Account{
@@ -61,7 +61,7 @@ model Listings {
   price Int
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade) 
-  reservation Reservation[] 
+  reservations Reservation[] 
 }
 
 model Reservation {
