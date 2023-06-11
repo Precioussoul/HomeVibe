@@ -78,12 +78,12 @@ export type EmptyState = {
 
 export type ListingCardProps = {
   data: SafeListing
-  reservations?: Reservation
+  reservation?: SafeReservations
   onAction?: (id: string) => void
   disabled?: boolean
   actionLabel?: string
   actionId?: string
-  currentUser: SafeUser | null
+  currentUser?: SafeUser | null
 }
 export type HeartButtonProps = {
   listingId: string
