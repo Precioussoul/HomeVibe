@@ -149,3 +149,7 @@ export type getReservationParams = {
   userId?: string
   authorId?: string
 }
+export type TripsProps = {
+  reservations: SafeReservations[]
+  currentUser?: SafeUser | null
+}
