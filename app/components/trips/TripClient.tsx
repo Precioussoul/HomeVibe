@@ -5,6 +5,7 @@ import Heading from "../Heading"
 import {useRouter} from "next/navigation"
 import {useCallback, useState} from "react"
 import axios from "axios"
+import {toast} from "react-hot-toast"
 
 const TripClient = ({reservations, currentUser}: TripsProps) => {
   const router = useRouter()
@@ -13,9 +14,17 @@ const TripClient = ({reservations, currentUser}: TripsProps) => {
   const onCancel = useCallback((id: string) => {
     setDeletingId(id)
 
-    axios.delete(`/api/reservations/${id}`).then(() => {
-      toast.success(
-    })
+    axios
+      .delete(`/api/reservations/${id}`)
+      .then(() => {
+        toast.success("reservations cancelled")
+      })
+      .catch((err) => {
+        toast.error(err?.response?.data?.error)
+      })
+      .finally(() => {
+        setDeletingId("")
+      })
   }, [])
 
   return (
