@@ -7,7 +7,6 @@ import ToasterProvider from "./providers/ToasterProvider"
 import LoginModal from "./components/modals/LoginModal"
 import getCurrentUser from "./actions/getCurrentUser"
 import RentModal from "./components/modals/RentModal"
-import ClientOnly from "./components/ClientOnly"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -26,13 +25,13 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <ClientOnly>
-          <ToasterProvider />
-          <Navbar currentUser={currentUser} />
-          <LoginModal />
-          <RentModal />
-          <RegisterModal />
-        </ClientOnly>
+        {/* <ClientOnly> */}
+        <ToasterProvider />
+        <Navbar currentUser={currentUser} />
+        <LoginModal />
+        <RentModal />
+        <RegisterModal />
+        {/* </ClientOnly> */}
         <div className='py-28'>{children}</div>
       </body>
     </html>
