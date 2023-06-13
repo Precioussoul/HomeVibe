@@ -11,7 +11,7 @@ import Button from "../Button"
 
 const ListingCard = ({
   data,
-  reservations,
+  reservation,
   onAction,
   disabled,
   actionLabel,
@@ -36,21 +36,21 @@ const ListingCard = ({
   )
 
   const price = useMemo(() => {
-    if (reservations) {
-      return reservations.totalPrice
+    if (reservation) {
+      return reservation.totalPrice
     }
     return data.price
-  }, [reservations, data.price])
+  }, [reservation, data.price])
 
   const reservationDate = useMemo(() => {
-    if (!reservations) {
+    if (!reservation) {
       return null
     }
-    const start = new Date(reservations.startDate)
-    const end = new Date(reservations.endDate)
+    const start = new Date(reservation.startDate)
+    const end = new Date(reservation.endDate)
 
     return `${format(start, "PP")} - ${format(end, "PP")}`
-  }, [reservations])
+  }, [reservation])
 
   return (
     <div
@@ -77,7 +77,7 @@ const ListingCard = ({
         </p>
         <div className='flex flex-row items-center gap-1'>
           <p className='font-semibold'>${price}</p>
-          {!reservations && <p className='font-light'>night</p>}
+          {!reservation && <p className='font-light'>night</p>}
         </div>
         {onAction && actionLabel && (
           <Button
