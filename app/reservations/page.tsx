@@ -2,6 +2,7 @@ import ClientOnly from "../components/ClientOnly"
 import getCurrentUser from "../actions/getCurrentUser"
 import getReservations from "../actions/getReservations"
 import EmptyState from "../components/EmptyState"
+import ReservationsClient from "../components/reservations/ReservationsClient"
 
 const ReservationsPage = async () => {
   const currentUser = await getCurrentUser()
