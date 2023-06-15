@@ -159,6 +159,6 @@ export type ReservationParams = {
 }
 
 export type ReservationClientProps = {
-  reservations: SafeReservations
+  reservations: SafeReservations[]
   currentUser: SafeUser | null
 }
