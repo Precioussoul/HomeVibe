@@ -1,11 +1,16 @@
 import {useRouter} from "next/navigation"
 import {useCallback, useState} from "react"
-import {SafeReservations, SafeUser} from "@/app/types"
+import Container from "../Container"
+import Heading from "../Heading"
 
 const ReservationsClient = () => {
   const router = useRouter()
 
-  return <div>Reservations on my properties </div>
+  return (
+    <Container>
+      <Heading title='Reservations' subtitle='Bookings on your properties' />
+    </Container>
+  )
 }
 
 export default ReservationsClient
