@@ -157,3 +157,8 @@ export type TripsProps = {
 export type ReservationParams = {
   reservationId?: string
 }
+
+export type ReservationClientProps = {
+  reservations: SafeReservations
+  currentUser: SafeUser | null
+}
