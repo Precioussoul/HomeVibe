@@ -25,4 +25,5 @@ export async function DELETE(
       OR: [{userId: currentUser.id}, {listing: {userId: currentUser.id}}],
     },
   })
+  return NextResponse.json(reservation)
 }
