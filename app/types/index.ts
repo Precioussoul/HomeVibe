@@ -162,7 +162,16 @@ export type ReservationClientProps = {
   reservations: SafeReservations[]
   currentUser: SafeUser | null
 }
+
 export type FavoritesClientProps = {
   listings: SafeListing[]
   currentUser?: SafeUser | null
+}
+
+export type IListingsParams = {
+  userId?: string
+}
+
+export type HomeProps = {
+  searchParams: IListingsParams
 }
