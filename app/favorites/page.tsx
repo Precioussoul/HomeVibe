@@ -18,11 +18,11 @@ const ListingFavorites = async () => {
     )
   }
 
-  //   return (
-  //     <ClientOnly>
-
-  //     </ClientOnly>
-  //   )
+  return (
+    <ClientOnly>
+      <FavoritesClient listings={listings} currentUser={currentUser} />
+    </ClientOnly>
+  )
 }
 
 export default ListingFavorites
