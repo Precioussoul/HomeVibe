@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar/Navbar"
-import Modal from "./components/modals/Modal"
 import RegisterModal from "./components/modals/RegisterModal"
 import "./globals.css"
 import {Inter} from "next/font/google"
@@ -7,6 +6,7 @@ import ToasterProvider from "./providers/ToasterProvider"
 import LoginModal from "./components/modals/LoginModal"
 import getCurrentUser from "./actions/getCurrentUser"
 import RentModal from "./components/modals/RentModal"
+import SearchModal from "./components/modals/SearchModal"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -30,6 +30,7 @@ export default async function RootLayout({
         <Navbar currentUser={currentUser} />
         <LoginModal />
         <RentModal />
+        <SearchModal />
         <RegisterModal />
         {/* </ClientOnly> */}
         <div className='py-28'>{children}</div>
