@@ -175,3 +175,8 @@ export type IListingsParams = {
 export type HomeProps = {
   searchParams: IListingsParams
 }
+
+export type propertiesProps = {
+  listings: SafeListing[]
+  currentUser?: SafeUser | null
+}
