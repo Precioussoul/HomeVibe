@@ -36,11 +36,18 @@ body {
 }
 
 .loader {
-  border-top-width: 1rem;
-  border-bottom-width: 1rem;
+  border-top-width: 0.5rem;
+  border-bottom-width: 0.5rem;
+  border-radius: 99999px;
   width: 100px;
   height: 100px;
-  border-top-color: lightcoral;
-  border-bottom-color: lightcoral;
+  border-left-color: lightcoral;
+  border-right-color: lightcoral;
+  border-top-color: #a7a7a7;
+  border-bottom-color: #a7a7a7;
   animation-duration: infinite;
+  -webkit-border-radius: 99999px;
+  -moz-border-radius: 99999px;
+  -ms-border-radius: 99999px;
+  -o-border-radius: 99999px;
 }
