@@ -1,22 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## AIRBNB CLONE LATEST VERSION WITH NEXTJS 13
+
+Airbnb clone with Next.JS 13, tailwindCSS, Prisma, MongoDB, Cloudinary CDN and more.
 
 ## Getting Started
 
-First, run the development server:
+First, run install the package and run the development server:
 
 ```bash
-npm run dev
-# or
+yarn install
+#
 yarn dev
-# or
-pnpm dev
+# after development
+yarn build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo Account details
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+email: airbnb@demo.com
+
+password: airbnb123
+
+```
 
 ## Learn More
 
