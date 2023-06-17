@@ -50,8 +50,8 @@ export default async function getListings(params: IListingQueryParams) {
                 startDate: {lte: startDate},
               },
               {
-                startDate: {lte: startDate},
-                endDate: {gte: startDate},
+                startDate: {lte: endDate},
+                endDate: {gte: endDate},
               },
             ],
           },
@@ -65,6 +65,7 @@ export default async function getListings(params: IListingQueryParams) {
         createdAt: "desc",
       },
     })
+
     const safeListings = listings.map((listing) => ({
       ...listing,
       createdAt: listing.createdAt.toISOString(),
@@ -72,6 +73,6 @@ export default async function getListings(params: IListingQueryParams) {
 
     return safeListings
   } catch (err: any) {
-    throw new Error("Something went wrong")
+    throw new Error(err)
   }
 }
