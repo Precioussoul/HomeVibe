@@ -173,7 +173,7 @@ export type IListingsParams = {
 }
 
 export type HomeProps = {
-  searchParams: IListingsParams
+  searchParams: IListingQueryParams
 }
 
 export type propertiesProps = {
