@@ -1,14 +1,62 @@
 import prisma from "@/app/libs/prismadb"
-import {IListingsParams} from "../types"
+import {IListingQueryParams} from "../types"
 
-export default async function getListings(params: IListingsParams) {
+export default async function getListings(params: IListingQueryParams) {
   try {
-    const {userId} = params
+    const {
+      userId,
+      roomCount,
+      bathroomCount,
+      guestCount,
+      locationValue,
+      startDate,
+      endDate,
+      category,
+    } = params
 
     let query: any = {}
 
     if (userId) {
       query.userId = userId
+    }
+    if (category) {
+      query.category = category
+    }
+    if (roomCount) {
+      query.roomCount = {
+        gte: +roomCount,
+      }
+    }
+    if (guestCount) {
+      query.guestCount = {
+        gte: +guestCount,
+      }
+    }
+    if (bathroomCount) {
+      query.bathroomCount = {
+        gte: +bathroomCount,
+      }
+    }
+    if (locationValue) {
+      query.locationValue = locationValue
+    }
+    if (startDate && endDate) {
+      query.NOT = {
+        reservation: {
+          some: {
+            OR: [
+              {
+                endDate: {gte: startDate},
+                startDate: {lte: startDate},
+              },
+              {
+                startDate: {lte: startDate},
+                endDate: {gte: startDate},
+              },
+            ],
+          },
+        },
+      }
     }
 
     const listings = await prisma.listings.findMany({
@@ -23,7 +71,7 @@ export default async function getListings(params: IListingsParams) {
     }))
 
     return safeListings
-  } catch (err) {
+  } catch (err: any) {
     throw new Error("Something went wrong")
   }
 }

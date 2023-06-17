@@ -180,3 +180,14 @@ export type propertiesProps = {
   listings: SafeListing[]
   currentUser?: SafeUser | null
 }
+
+export type IListingQueryParams = {
+  userId?: string
+  guestCount?: number
+  roomCount?: number
+  bathroomCount?: number
+  startDate?: string
+  endDate?: string
+  locationValue?: string
+  category?: string
+}
