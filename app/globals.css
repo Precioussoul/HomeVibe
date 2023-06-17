@@ -34,3 +34,13 @@ body {
 .rdrMonth {
   width: 100% !important;
 }
+
+.loader {
+  border-top-width: 1rem;
+  border-bottom-width: 1rem;
+  width: 100px;
+  height: 100px;
+  border-top-color: lightcoral;
+  border-bottom-color: lightcoral;
+  animation-duration: infinite;
+}
