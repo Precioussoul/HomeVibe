@@ -11,6 +11,7 @@ import {formatISO} from "date-fns"
 import Heading from "../Heading"
 import CountrySelect from "../Inputs/CountrySelect"
 import Calender from "../Calender"
+import Counter from "../Counter"
 
 enum STEPS {
   LOCATION = 0,
@@ -150,6 +151,24 @@ const SearchModal = () => {
     bodyContext = (
       <div className='flex flex-col gap-8'>
         <Heading title='More Information' subtitle='find your perfect place' />
+        <Counter
+          title='Guests'
+          subtitle='how many guests are coming?'
+          value={guestCount}
+          onChange={(value) => setGuestCount(value)}
+        />
+        <Counter
+          title='Rooms'
+          subtitle='how many rooms do you need?'
+          value={roomCount}
+          onChange={(value) => setRoomCount(value)}
+        />
+        <Counter
+          title='Bathrooms'
+          subtitle='how many bathrooms do you need?'
+          value={bathroomCount}
+          onChange={(value) => setBathroomCount(value)}
+        />
       </div>
     )
   }
