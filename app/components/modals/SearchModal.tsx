@@ -146,6 +146,14 @@ const SearchModal = () => {
     )
   }
 
+  if (step === STEPS.INFO) {
+    bodyContext = (
+      <div className='flex flex-col gap-8'>
+        <Heading title='More Information' subtitle='find your perfect place' />
+      </div>
+    )
+  }
+
   return (
     <Modal
       isOpen={searchModal.isOpen}
