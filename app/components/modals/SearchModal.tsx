@@ -2,10 +2,15 @@
 import useSearchModal from "@/app/hooks/useSearchModal"
 import Modal from "./Modal"
 import {useRouter, useSearchParams} from "next/navigation"
-import {useMemo, useState} from "react"
+import {useCallback, useMemo, useState} from "react"
 import {Range} from "react-date-range"
 import dynamic from "next/dynamic"
 import {CountrySelectvalueProps} from "@/app/types"
+import qs from "query-string"
+import {formatISO} from "date-fns"
+import Heading from "../Heading"
+import CountrySelect from "../Inputs/CountrySelect"
+import Calender from "../Calender"
 
 enum STEPS {
   LOCATION = 0,
@@ -18,7 +23,9 @@ const SearchModal = () => {
   const params = useSearchParams()
   const router = useRouter()
 
-  const [location, setLocation] = useState<CountrySelectvalueProps>()
+  const [location, setLocation] = useState<CountrySelectvalueProps>(
+    {} as CountrySelectvalueProps
+  )
   const [step, setStep] = useState(STEPS.LOCATION)
   const [guestCount, setGuestCount] = useState(1)
   const [roomCount, setRoomCount] = useState(1)
@@ -29,15 +36,126 @@ const SearchModal = () => {
     key: "selection",
   })
 
-  const Map = useMemo(() => dynamic(() => import("../Map"), {ssr: false}), [])
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map").then((module) => module.default), {
+        ssr: false,
+      }),
+    []
+  ) as any
+
+  const onBack = useCallback(() => {
+    setStep((value) => value - 1)
+  }, [])
+
+  const onNext = useCallback(() => {
+    setStep((value) => value + 1)
+  }, [])
+
+  const onSubmit = useCallback(async () => {
+    if (step !== STEPS.INFO) {
+      return onNext()
+    }
+    let currentQuery = {}
+
+    if (params) {
+      currentQuery = qs.parse(params.toString())
+    }
+
+    const updatedQuery: any = {
+      ...currentQuery,
+      locationValue: location?.value,
+      guestCount,
+      roomCount,
+      bathroomCount,
+    }
+
+    if (dateRange.startDate) {
+      updatedQuery.startDate = formatISO(dateRange.startDate)
+    }
+
+    if (dateRange.endDate) {
+      updatedQuery.endDate = formatISO(dateRange.endDate)
+    }
+    const url = qs.stringifyUrl(
+      {
+        url: "/",
+        query: updatedQuery,
+      },
+      {skipNull: true}
+    )
+
+    setStep(STEPS.LOCATION)
+    searchModal.onClose()
+    router.push(url)
+  }, [
+    dateRange,
+    step,
+    searchModal,
+    router,
+    guestCount,
+    roomCount,
+    bathroomCount,
+    location?.value,
+    onNext,
+    params,
+  ])
+
+  const actionLabel = useMemo(() => {
+    if (step === STEPS.INFO) {
+      return "Search"
+    }
+
+    return "Next"
+  }, [step])
+
+  const secondaryActionLabel = useMemo(() => {
+    if (step === STEPS.LOCATION) {
+      return undefined
+    }
+    return "Back"
+  }, [step])
+
+  let bodyContext = (
+    <div className='flex flex-col gap-8'>
+      <Heading
+        title='Where do you wanna go'
+        subtitle='find the perfect location'
+      />
+      <CountrySelect
+        value={location}
+        onChange={(value) => setLocation(value as CountrySelectvalueProps)}
+      />
+      <hr />
+      <Map center={location?.latlng} />
+    </div>
+  )
+
+  if (step === STEPS.DATE) {
+    bodyContext = (
+      <div className='flex flex-col gap-8'>
+        <Heading
+          title='When do you plan to go'
+          subtitle='Make sure everyone is free!'
+        />
+        <Calender
+          value={dateRange}
+          onChange={(value) => setDateRange(value.selection)}
+        />
+      </div>
+    )
+  }
 
   return (
     <Modal
       isOpen={searchModal.isOpen}
       onClose={searchModal.onClose}
-      onSubmit={searchModal.onOpen}
+      onSubmit={onSubmit}
       title='filters'
-      actionLabel='Search'
+      actionLabel={actionLabel}
+      secondaryActionLabel={secondaryActionLabel}
+      secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+      body={bodyContext}
     />
   )
 }
