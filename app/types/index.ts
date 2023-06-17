@@ -1,4 +1,4 @@
-import {Listings, Reservation, User} from "@prisma/client"
+import {Listing, Reservation, User} from "@prisma/client"
 import {Range, RangeKeyDict} from "react-date-range"
 import {IconType} from "react-icons/lib"
 
@@ -10,7 +10,7 @@ export type SafeUser = Omit<
   updatedAt: string
   emailVerified: string | null
 }
-export type SafeListing = Omit<Listings, "createdAt"> & {
+export type SafeListing = Omit<Listing, "createdAt"> & {
   createdAt: string
 }
 export type SafeReservations = Omit<

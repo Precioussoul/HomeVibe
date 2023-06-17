@@ -17,12 +17,12 @@ export async function POST(request: Request) {
     return NextResponse.error()
   }
 
-  const listingAndReservations = await prisma.listings.update({
+  const listingAndReservations = await prisma.listing.update({
     where: {
       id: listingId,
     },
     data: {
-      reservation: {
+      reservations: {
         create: {
           userId: currentUser.id,
           startDate,
