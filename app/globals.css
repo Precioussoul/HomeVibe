@@ -15,12 +15,6 @@
   }
 }
 
-/* 
-body {
-   color: rgb(var(--foreground-rgb));
-  background: var(--background-start-rgb); 
-} */
-
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
