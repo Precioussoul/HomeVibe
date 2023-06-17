@@ -8,8 +8,6 @@ import {HomeProps} from "./types"
 export default async function Home({searchParams}: HomeProps) {
   const listings = await getListings(searchParams)
   const currentUser = await getCurrentUser()
-  console.log("searchParams", searchParams)
-  console.log("listing results", listings)
 
   if (listings.length === 0) {
     return <EmptyState showReset />
