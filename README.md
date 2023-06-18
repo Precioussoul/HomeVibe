@@ -1,6 +1,6 @@
-## AIRBNB CLONE LATEST VERSION WITH NEXTJS 13
+## HomeVibe Platform Inspired by Airbnb
 
-Airbnb clone with Next.JS 13, tailwindCSS, Prisma, MongoDB, Cloudinary CDN and more.
+A central platform that gives you home away home feeling. finding exciting and vibrant accommodation or stays. "Experience a vibrant and energized experience when staying at accommodations "
 
 ## Getting Started
 
@@ -19,9 +19,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Demo Account details
 
 ```
-email: airbnb@demo.com
+email: homevibe@demo.com
 
-password: airbnb123
+password: homevibe123
 
 ```
 

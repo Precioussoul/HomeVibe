@@ -12,8 +12,9 @@ import ClientOnly from "./components/ClientOnly"
 const inter = Inter({subsets: ["latin"]})
 
 export const metadata = {
-  title: "AirBNB",
-  description: "Airbnb website built with next 13",
+  title: "HomeVibe",
+  description:
+    "A central platform that gives you home away home feeling. finding exciting and vibrant accommodation or stays. 'Experience a vibrant and energized experience when staying at accommodations' ",
 }
 
 export default async function RootLayout({
@@ -25,6 +26,9 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
+      <head>
+        <link rel='icon' href='/homevibe.png' sizes='any' />
+      </head>
       <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
