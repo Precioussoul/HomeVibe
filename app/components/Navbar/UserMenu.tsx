@@ -9,6 +9,7 @@ import useLoginModal from "@/app/hooks/useLoginModal"
 import {SafeUser} from "@/app/types"
 import useRentModal from "@/app/hooks/useRentModal"
 import {useRouter} from "next/navigation"
+import {BsHouseAddFill, BsHouseLockFill} from "react-icons/bs"
 
 interface UsermenuProps {
   currentUser?: SafeUser | null
@@ -37,9 +38,14 @@ const UserMenu = ({currentUser}: UsermenuProps) => {
       <div className='flex flex-row items-center gap-3'>
         <div
           onClick={onRent}
-          className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer bg-[#f8fafb] bg-opacity-70'
+          className='hidden md:flex flex-row items-center gap-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer bg-[#f8fafb] bg-opacity-70'
         >
-          Homevibe your home
+          {currentUser ? (
+            <BsHouseAddFill size={22} className='text-blue-500' />
+          ) : (
+            <BsHouseLockFill size={22} className='text-blue-500' />
+          )}
+          <span className='text-sm'> Homevibe your home</span>
         </div>
         <div
           onClick={toggleOpen}
@@ -72,7 +78,7 @@ const UserMenu = ({currentUser}: UsermenuProps) => {
                   onClick={() => router.push("/properties")}
                   label='My properties'
                 />
-                <MenuItem onClick={rentModal.onOpen} label='Airbnb my home' />
+                <MenuItem onClick={rentModal.onOpen} label='Homevibe my home' />
                 <MenuItem onClick={() => signOut()} label='Logout' />
               </>
             ) : (

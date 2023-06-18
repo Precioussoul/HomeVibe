@@ -95,7 +95,7 @@ const LoginModal = () => {
       />
       <div className='text-neutral-600 text-center mt-4 font-light'>
         <div className='flex items-center justify-center gap-3'>
-          <p>First time using Airbnb?</p>
+          <p>First time using Homevibe?</p>
           <h4
             className='text-neutral-800 cursor-pointer hover:underline'
             onClick={toggle}

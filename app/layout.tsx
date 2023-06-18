@@ -28,7 +28,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <Head>
-        <link rel='icon' href='/homevibe.png' sizes='148x148' />
+        <link rel='icon' href='/homevibe.png' type='image/png' sizes='48x48' />
       </Head>
       <body className={inter.className}>
         <ClientOnly>
