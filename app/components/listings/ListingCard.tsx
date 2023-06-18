@@ -8,6 +8,10 @@ import {useRouter} from "next/navigation"
 import {useCallback, useMemo} from "react"
 import HeartButton from "../HeartButton"
 import Button from "../Button"
+import {IoBedOutline, IoLocationSharp} from "react-icons/io5"
+import {AiFillStar} from "react-icons/ai"
+import {FaBath} from "react-icons/fa"
+import {IoIosPeople} from "react-icons/io"
 
 const ListingCard = ({
   data,
@@ -68,10 +72,51 @@ const ListingCard = ({
           <div className='absolute top-3 right-3'>
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
+          <div className='absolute top-3 left-3'>
+            <div className='flex flex-row gap-2 bg-neutral-200 bg-opacity-70 py-2 px-2 rounded-full'>
+              <IoLocationSharp size={20} />
+              <span className='text-sm'>
+                {location?.region}, {location?.label}
+              </span>
+            </div>
+          </div>
         </div>
-        <p className='font-semibold text-lg'>
-          {location?.region}, {location?.label}
-        </p>
+        <div className='flex flex-row items-center justify-between '>
+          <h3>{data.title}</h3>
+          <div className='flex flex-row gap-2 items-center'>
+            <AiFillStar size={22} color='#FFEF84' />
+            <span>{4.6}</span>
+          </div>
+        </div>
+        <div className='flex flex-row items-center justify-between gap-2'>
+          <h3 className='font-semibold text-[1.25rem] text-blue-600'>
+            ${data.price}
+          </h3>
+          <span className='bg-[#f8fafb] bg-opacity-70 py-1 px-2 rounded-lg text-neutral-400 text-[0.8rem]'>
+            {data.category}
+          </span>
+        </div>
+        <div className='flex flex-row gap-3 items-center justify-between text-neutral-700'>
+          <div className='flex flex-row gap-2 items-center bg-[#f8fafb] bg-opacity-70 py-1 px-2 rounded-lg '>
+            <IoBedOutline size={20} />
+            <span className='text-[9px] font-semibold'>
+              {data.roomCount} rooms
+            </span>
+          </div>
+          <div className='flex flex-row gap-2 items-center bg-[#f8fafb] bg-opacity-70 py-1 px-2 rounded-lg'>
+            <FaBath size={20} />
+            <span className='text-[9px] font-semibold'>
+              {data.bathroomCount} baths
+            </span>
+          </div>
+          <div className='flex flex-row gap-2 items-center bg-[#f8fafb] bg-opacity-70 py-1 px-2 rounded-lg'>
+            <IoIosPeople size={20} />
+            <span className='text-[9px] font-semibold'>
+              {data.guestCount} Guests
+            </span>
+          </div>
+        </div>
+        {/* <p className='font-semibold text-lg'>{data.title}</p>
         <p className='font-light text-neutral-500'>
           {reservationDate || data.category}
         </p>
@@ -86,7 +131,7 @@ const ListingCard = ({
             label={actionLabel}
             onClick={handleCancel}
           />
-        )}
+        )} */}
       </div>
     </div>
   )
