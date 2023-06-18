@@ -2,6 +2,8 @@
 
 A central platform that gives you home away home feeling. finding exciting and vibrant accommodation or stays. "Experience a vibrant and energized experience when staying at accommodations "
 
+![homeevibe](./public/images/homevibe-screenshot.png?raw=true "Title")
+
 ## Getting Started
 
 First, run install the package and run the development server:
@@ -16,6 +18,10 @@ yarn build
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+#### Live link
+
+https://homevibe.vercel.app
+
 ## Demo Account details
 
 ```
@@ -24,6 +30,18 @@ email: homevibe@demo.com
 password: homevibe123
 
 ```
+
+## Built with
+
+- Next.js
+- React
+- Tailwind CSS
+- React-icons
+- Prisma ORM
+- MongoDB
+- NodeJS
+- Next.js Server API functions
+- and more
 
 ## Learn More
 

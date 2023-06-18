@@ -8,6 +8,7 @@ import getCurrentUser from "./actions/getCurrentUser"
 import RentModal from "./components/modals/RentModal"
 import SearchModal from "./components/modals/SearchModal"
 import ClientOnly from "./components/ClientOnly"
+import Head from "next/head"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -26,9 +27,9 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
-      <head>
-        <link rel='icon' href='/homevibe.png' sizes='any' />
-      </head>
+      <Head>
+        <link rel='icon' href='/homevibe.png' sizes='148x148' />
+      </Head>
       <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
