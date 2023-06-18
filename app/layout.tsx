@@ -28,12 +28,12 @@ export default async function RootLayout({
       <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
-          <Navbar currentUser={currentUser} />
           <LoginModal />
           <RentModal />
           <SearchModal />
           <RegisterModal />
         </ClientOnly>
+        <Navbar currentUser={currentUser} />
         <div className='py-28'>{children}</div>
       </body>
     </html>

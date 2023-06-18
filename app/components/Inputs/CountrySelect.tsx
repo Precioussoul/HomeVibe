@@ -33,7 +33,7 @@ const CountrySelect = ({value, onChange}: CountrySelectProps) => {
           colors: {
             ...theme.colors,
             primary: "black",
-            primary25: "#ffe4e6",
+            primary25: "#5992DC70",
           },
         })}
       />
