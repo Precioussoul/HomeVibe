@@ -93,6 +93,12 @@ const LoginModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
+      <Button
+        outline
+        label='Continue with Discord'
+        icon={AiFillGithub}
+        onClick={() => signIn("discord")}
+      />
       <div className='text-neutral-600 text-center mt-4 font-light'>
         <div className='flex items-center justify-center gap-3'>
           <p>First time using Homevibe?</p>

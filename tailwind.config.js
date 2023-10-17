@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        laptopL: "1440px",
+        laptopL: "1800px",
       },
     },
   },
